@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mes Notes — Gestionnaire de notes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="hero">
+        <h1>📝 Mes Notes</h1>
+        <p class="hero-subtitle">Capture tes idées, elles restent enregistrées dans ton navigateur.</p>
+    </header>
+
+    <main class="container">
+
+        <section class="note-form">
+            <input type="text" id="titreNote" placeholder="Titre de la note" maxlength="60">
+            <textarea id="contenuNote" placeholder="Écris ton contenu ici..." rows="4"></textarea>
+            <button id="ajouterNote">＋ Ajouter la note</button>
+        </section>
+
+        <section class="notes-section">
+            <div class="notes-header">
+                <h2>Toutes les notes</h2>
+                <span id="compteurNotes" class="badge">0</span>
+            </div>
+            <div id="listeNotes" class="notes-grid"></div>
+            <p id="etatVide" class="empty-state">Aucune note pour le moment. Ajoute ta première note ! ✨</p>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        Fait avec ❤️ en HTML, CSS &amp; JavaScript
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

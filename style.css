@@ -1,0 +1,256 @@
+/* ===== Reset & base ===== */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg: #0f1117;
+    --surface: #1a1d27;
+    --surface-hover: #20242f;
+    --border: #2a2e3d;
+    --text: #e8eaf0;
+    --text-muted: #9aa0b0;
+    --accent: #7c6cf6;
+    --accent-hover: #6a58f0;
+    --accent-soft: rgba(124, 108, 246, 0.15);
+    --danger: #f06565;
+    --danger-soft: rgba(240, 101, 101, 0.12);
+    --radius: 14px;
+    --shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+body {
+    font-family: "Inter", system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    background-image:
+        radial-gradient(ellipse 60% 40% at 50% -10%, rgba(124, 108, 246, 0.18), transparent),
+        radial-gradient(ellipse 40% 30% at 90% 20%, rgba(80, 180, 250, 0.08), transparent);
+    background-attachment: fixed;
+    color: var(--text);
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+/* ===== Hero ===== */
+.hero {
+    text-align: center;
+    padding: 64px 20px 32px;
+}
+
+.hero h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    background: linear-gradient(135deg, #ffffff 30%, #a89cff 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+    margin-top: 8px;
+    color: var(--text-muted);
+    font-size: 1.05rem;
+}
+
+/* ===== Layout ===== */
+.container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 20px 60px;
+}
+
+/* ===== Formulaire ===== */
+.note-form {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    box-shadow: var(--shadow);
+}
+
+.note-form input,
+.note-form textarea {
+    font-family: inherit;
+    font-size: 1rem;
+    color: var(--text);
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px 16px;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    resize: vertical;
+}
+
+.note-form input::placeholder,
+.note-form textarea::placeholder {
+    color: var(--text-muted);
+}
+
+.note-form input:focus,
+.note-form textarea:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+#ajouterNote {
+    align-self: flex-end;
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(135deg, var(--accent), #9b6cf6);
+    border: none;
+    border-radius: 10px;
+    padding: 12px 26px;
+    cursor: pointer;
+    transition: transform 0.15s, box-shadow 0.15s, filter 0.15s;
+    box-shadow: 0 4px 14px rgba(124, 108, 246, 0.35);
+}
+
+#ajouterNote:hover {
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(124, 108, 246, 0.45);
+}
+
+#ajouterNote:active {
+    transform: translateY(0);
+}
+
+/* ===== Section notes ===== */
+.notes-section {
+    margin-top: 44px;
+}
+
+.notes-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.notes-header h2 {
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.badge {
+    background: var(--accent-soft);
+    color: var(--accent);
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 2px 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(124, 108, 246, 0.3);
+}
+
+/* ===== Grille de notes ===== */
+.notes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 16px;
+}
+
+.note-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: transform 0.2s, border-color 0.2s, background 0.2s;
+    animation: apparition 0.3s ease both;
+}
+
+@keyframes apparition {
+    from {
+        opacity: 0;
+        transform: translateY(10px) scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.note-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--accent);
+    background: var(--surface-hover);
+}
+
+.note-card h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    word-break: break-word;
+}
+
+.note-card p {
+    color: var(--text-muted);
+    font-size: 0.92rem;
+    flex-grow: 1;
+    word-break: break-word;
+    white-space: pre-wrap;
+}
+
+.btn-supprimer {
+    align-self: flex-end;
+    font-family: inherit;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--danger);
+    background: var(--danger-soft);
+    border: 1px solid transparent;
+    border-radius: 8px;
+    padding: 6px 14px;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.btn-supprimer:hover {
+    background: rgba(240, 101, 101, 0.22);
+    border-color: var(--danger);
+}
+
+/* ===== État vide ===== */
+.empty-state {
+    text-align: center;
+    color: var(--text-muted);
+    padding: 40px 20px;
+    border: 2px dashed var(--border);
+    border-radius: var(--radius);
+    display: none;
+}
+
+.empty-state.visible {
+    display: block;
+}
+
+/* ===== Footer ===== */
+.footer {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    padding: 24px;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 520px) {
+    .hero {
+        padding: 40px 16px 24px;
+    }
+
+    #ajouterNote {
+        align-self: stretch;
+    }
+}
