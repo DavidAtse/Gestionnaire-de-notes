@@ -5,7 +5,7 @@ Une application web de prise de notes, simple et rapide, construite en **HTML, C
 Les notes sont sauvegardées dans le `localStorage` du navigateur : elles restent disponibles même après avoir fermé la page.
 
 <!-- Remplace le lien ci-dessous par ton URL une fois le site hébergé -->
-🔗 **Démo en ligne :** [voir le site](https://tonpseudo.github.io/gestionnaire-de-notes)
+🔗 **Démo en ligne :** [Voir le site](https://davidatse.github.io/Gestionnaire-de-notes/)
 
 ## ✨ Fonctionnalités
 
@@ -30,7 +30,7 @@ Aucune installation nécessaire :
 
 1. Clone le dépôt :
    ```bash
-   git clone https://github.com/tonpseudo/gestionnaire-de-notes.git
+   git clone https://github.com/DavidAtse/Gestionnaire-de-notes.git
    ```
 2. Ouvre `index.html` dans ton navigateur. C'est tout !
 
